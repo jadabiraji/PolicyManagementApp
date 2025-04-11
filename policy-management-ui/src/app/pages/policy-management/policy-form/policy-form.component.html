@@ -1,0 +1,93 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="max-width: 600px; width: 100%">
+    <div class="card-header bg-primary text-white text-center">
+      <h4>{{ isEditMode ? 'Edit Policy' : 'Create New Policy' }}</h4>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="policyForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Enter policy name"
+          />
+          <div *ngIf="policyForm.get('name')?.invalid && policyForm.get('name')?.touched" class="text-danger">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            id="description"
+            class="form-control"
+            formControlName="description"
+            placeholder="Enter policy description"
+          ></textarea>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="creationDate" class="form-label">Creation Date</label>
+            <input
+              id="creationDate"
+              type="date"
+              class="form-control"
+              formControlName="creationDate"
+            />
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="effectiveDate" class="form-label">Effective Date</label>
+            <input
+              id="effectiveDate"
+              type="date"
+              class="form-control"
+              formControlName="effectiveDate"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="expiryDate" class="form-label">Expiry Date</label>
+          <input
+            id="expiryDate"
+            type="date"
+            class="form-control"
+            formControlName="expiryDate"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="policyTypeId" class="form-label">Policy Type</label>
+          <select
+            id="policyTypeId"
+            class="form-select"
+            formControlName="policyTypeId"
+          >
+            <option value="">Select Policy Type</option>
+            <option *ngFor="let type of policyTypes" [value]="type.id">
+              {{ type.name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="d-flex justify-content-between mt-3">
+          <button
+            type="submit"
+            class="btn btn-success w-48"
+            [disabled]="policyForm.invalid"
+          >
+            {{ isEditMode ? 'Update' : 'Create' }}
+          </button>
+
+          <button type="button" class="btn btn-secondary w-48 ms-2" [routerLink]="['/policies']">
+            Back to List
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

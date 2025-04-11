@@ -1,0 +1,30 @@
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card p-4 shadow-sm" style="max-width: 400px; width: 100%; border-radius: 8px;">
+      <h3 class="text-center mb-4">Login</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label class="form-label">Username</label>
+          <input 
+            class="form-control form-control-lg" 
+            type="text" 
+            formControlName="username" 
+            placeholder="Enter your username" />
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input 
+            class="form-control form-control-lg" 
+            type="password" 
+            formControlName="password" 
+            placeholder="Enter your password" />
+        </div>
+        <button 
+          type="submit" 
+          class="btn btn-primary btn-lg w-100" 
+          [disabled]="loginForm.invalid">
+          Login
+        </button>
+      </form>
+    </div>
+  </div>
+  

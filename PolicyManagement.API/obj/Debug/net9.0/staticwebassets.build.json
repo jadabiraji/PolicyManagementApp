@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "vn9z8rq5A9BrgK7VkKaZtxHz1NOKJQU12VIExNqKcaY=",
+  "Source": "PolicyManagement.API",
+  "BasePath": "_content/PolicyManagement.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
